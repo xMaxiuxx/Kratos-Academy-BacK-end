@@ -1,9 +1,5 @@
-const express = require("express");
+const server = require("./src//app");
 
-
-
-const app = express();
-
-app.listen(3001,()=>{
+server.listen(3001,() => {
     console.log("Funcionando en el Puerto 3001") 
 })
