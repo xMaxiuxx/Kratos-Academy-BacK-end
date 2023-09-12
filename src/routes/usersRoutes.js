@@ -21,13 +21,4 @@ usersRouter.get('/', (req, res) =>{
 
 
 
-
-
-
-
-
-
-
-
-
  module.exports = usersRouter;
