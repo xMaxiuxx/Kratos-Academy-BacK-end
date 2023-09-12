@@ -5,16 +5,16 @@
  // RUTA GET/:id para que me traiga al usuario que le estoy pidiendo en particular 
  // RUTA DELETE Elimina usuarios 
  const usersRouter = require ('express').Router();
- const { getUsers } = require("../controllers/controllerUser")
+ const { getUsers } = require("../controllers/userController")
 
 usersRouter.get('/', (req, res) =>{
     try {
 
-       const {name} = req.query;
+       const {users} = req.query;
        if (!name) res.status(200).json(getUsers());
        
     } catch (error) {
-        "/"
+
     }
 })
  

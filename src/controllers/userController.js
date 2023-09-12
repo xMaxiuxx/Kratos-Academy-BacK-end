@@ -5,7 +5,8 @@
         "edad": 24,
         "peso": "78kgs",
         "cinturon":"marron",
-        "apodo":"animalito"
+        "apodo":"animalito",
+        "password":123
         },
         {
             "name":  "Aldo",
@@ -13,21 +14,12 @@
             "edad": 38,
             "peso": "110kgs",
             "cinturon":"preta",
-            "apodo":"sensei"
+            "apodo":"sensei",
+            "password":123
+
             }
  ];
-
-
  const getUsers = () => users;
-
-
-
-
-
-
-
-
-
 
  module.exports = {
     getUsers
