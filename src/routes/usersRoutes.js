@@ -14,7 +14,7 @@ usersRouter.get('/', (req, res) =>{
        if (!name) res.status(200).json(getUsers());
        
     } catch (error) {
-        
+        "/"
     }
 })
  
