@@ -1,8 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
-const usersRouter = require("./routes/usersRoutes");
-const loginRoutes = require("./routes/loginRoutes");
-
+const usersRouter = require("./src/routes/usersRoutes");
+const loginRoutes = require("./src/routes/loginRoutes");
 
 
 const server = express();
@@ -12,12 +11,8 @@ const server = express();
 
 
  server.use("/users", usersRouter);
-//  server.use("/login", loginRoutes);
+ server.use("/login", loginRoutes);
 
- server.get('/users', (req ,res) =>{
-    res.send ("Hola  soy Maxi")
-
- })
 
 
 module.exports = server;

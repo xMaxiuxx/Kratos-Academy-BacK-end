@@ -1,24 +1,15 @@
 
-const loginRoutes = require ("express").Router();
-const { getUsers } = require("../controllers/controllerUser")
+const loginRouter = require ("express").Router();
+const { getLogin } = require("../controllers/loginController")
 
 
-loginRoutes.post('/login', (req, res ) => {
+loginRouter.post('/', (req, res ) => {
     try {
-        const {users} = req.query;
-        if (!users) res.status(200).json(getUsers());
+        return getLogin(req, res);
         
     } catch (error) {
-
-    }
-})
-loginRoutes.get('/login', (req, res ) => {
-    try {
-        const {users} = req.query;
-        if (!users) res.status(200).json(getUsers());
-        
-    } catch (error) {
-
+        console.error("Error al obtener  usuarios ", error);
+        res.status(500).json({message: 'Error interno en el Servidor'});
     }
 })
 
@@ -26,4 +17,4 @@ loginRoutes.get('/login', (req, res ) => {
 
 
 
-module.exports = loginRoutes;
+module.exports = loginRouter;
