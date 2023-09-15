@@ -9,8 +9,6 @@ const users =  [
         "apodo":"animalito",
         "password": "123",
         "role":"alumno"
-
-        
         },
 
         {
