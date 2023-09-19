@@ -17,6 +17,7 @@ const server = express();
 
  server.use("/users", usersRouter);
  server.use("/login", loginRoutes);
+ server.use("/users/:userId", usersRouter);
 
 
 

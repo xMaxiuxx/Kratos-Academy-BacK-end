@@ -1,6 +1,7 @@
 const users =  [
-    {
-      "user": "Maxi_Alumno",
+    {  
+      "id":"1232",
+      "nickname": "Maxi_Alumno",
         "name":"Maxi",
         "apellido": "Gatica",
         "edad": 24,
@@ -12,7 +13,8 @@ const users =  [
         },
 
         {
-         "user": "Aldo_Profe",
+          "id":"a72a8caa-5408-11ee-8c99-0242ac120002",
+         "nickname": "Aldo_Profe",
         "name":"Aldo",
         "apellido": "Escudero",
         "edad": 38,
@@ -25,7 +27,8 @@ const users =  [
         },
 
         {
-         "user":"Marcos_Alumno",
+          "id":"a72a8df4-5408-11ee-8c99-0242ac120002",
+         "nickname":"Marcos_Alumno",
          "apellido": "Lardone",
          "edad": 36,
          "peso": "80kgs",

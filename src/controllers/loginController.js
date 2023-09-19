@@ -1,17 +1,27 @@
 const {getUsers} = require ("./usersController");
 
 const getLogin = (req, res) => {
-    const {user, password} = req.body;
+    /*
+    req.body = {
+        "nickname":"Aldo_Profe"	,
+        "password":"123",
+        "algo_al_pedo": "kkkk"
+    }
+    */
+    const {nickname, password} = req.body;
+    //nickname= "Aldo_Profe"
+    //password= "123"
     //TODO: validar not null
     // console.log(req.body);
     const users = getUsers();
     
-    const foundUser = users.find((userName) => userName.user === user);
+    const foundUser = users.find((user) => user.nickname === nickname);
+    
     if(!foundUser){
         return res.status(404).json({message: 'Usuario Desconocido'});
     }
     if(foundUser.password === password){
-        return res.json({message: 'OK', role:foundUser.role})
+        return res.json({id:foundUser.id, role:foundUser.role})
     }else{
         return res.status(401).json({message: 'Contraseña Incorrecta'});
     }
