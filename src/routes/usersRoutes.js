@@ -16,8 +16,6 @@ usersRouter.get('/', (req, res) =>{
     }
 })
  
-
-
         usersRouter.get ("/:id", (req ,res)=>{
             try {
                 const userId = req.params.id;
