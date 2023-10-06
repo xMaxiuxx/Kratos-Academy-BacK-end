@@ -1,16 +1,19 @@
 
 const loginRouter = require ("express").Router();
+const Users = require("../../models/users");
 const { getLogin } = require("../controllers/loginController")
 
 
 loginRouter.post('/', (req, res ) => {
-    try {
-        return getLogin(req, res);
-        
-    } catch (error) {
-        console.error("Error al obtener  usuarios ", error);
-        res.status(500).json({message: 'Error interno en el Servidor'});
-    }
+    const body = req.body
+    console.log({body});
+    Users.create(body).then((createdUser)=>{
+        res
+        .status(201)
+        .json({ok: true, message: "Usuario creado con exito",data: createdUser})
+    }).catch((err)=>{
+        res.status(400).json({false: "Error al crear el usuario",err})
+    })
 })
 
 

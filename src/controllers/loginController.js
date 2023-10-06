@@ -1,16 +1,8 @@
 const {getUsers} = require ("./usersController");
-
 const getLogin = (req, res) => {
-    /*
-    req.body = {
-        "nickname":"Aldo_Profe"	,
-        "password":"123",
-        "algo_al_pedo": "kkkk"
-    }
-    */
-    const {nickname, password} = req.body;
-    //nickname= "Aldo_Profe"
-    //password= "123"
+  
+    const {nickname,password} = req.body;
+    
     //TODO: validar not null
     // console.log(req.body);
     const users = getUsers();
