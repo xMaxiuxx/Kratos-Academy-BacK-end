@@ -1,24 +1,40 @@
 
 const loginRouter = require ("express").Router();
 const Users = require("../../models/users");
-const { getLogin } = require("../controllers/loginController")
+// const { getLogin } = require("../controllers/loginController")
+const bcrypt = require ("bcryptjs")
 
-// POST Crea usuarios en Base de Datos // encriptado de password
-loginRouter.post('/', (req, res ) => {
-    const body = req.body
-    Users.create(body).then((createdUser)=>{
-        res
-        .status(201)
-        .json({ok: true, message: "Usuario creado con exito",data: createdUser})
-    }).catch((err)=>{
-        res.status(400).json({false: "Error al crear el usuario",err})
-    })
+
+
+
+
+// //
+loginRouter.post('/register',async (req, res)=> {
+    try {
+        const {nickname,password,surname,age,weight,faixa,role,date} = req.body
+       const existingUser = await Users.findOne({ nickname });
+       if (existingUser) {
+        return res.status(400).json({ error: "El usuario ya existe" });
+
+    }
+        const hashedPassword = await bcrypt.hash(req.body.password, 12);
+
+        const newUser = new Users({
+            nickname,
+            password: hashedPassword,
+            surname,
+            age,
+            weight,
+            faixa,
+            role,
+            date
+        });
+        await newUser.save();
+        res.status(201).json({message: 'Usuario creado con exito'})
+    } catch (err) {
+        console.error("Error al Crear usuario",err);
+        res.status(500).json({message: "Error interno del servidor"})
+    }
 })
-
-//
-
-
-
-
 
 module.exports = loginRouter;

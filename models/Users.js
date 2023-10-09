@@ -59,3 +59,13 @@ usersSchema.set('toJSON', {
 
 // Exportamos modelo Users
 module.exports = Users
+
+
+
+
+
+
+
+
+
+
