@@ -6,7 +6,6 @@ const { getLogin } = require("../controllers/loginController")
 
 loginRouter.post('/', (req, res ) => {
     const body = req.body
-    console.log({body});
     Users.create(body).then((createdUser)=>{
         res
         .status(201)
