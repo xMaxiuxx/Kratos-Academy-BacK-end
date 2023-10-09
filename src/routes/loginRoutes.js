@@ -3,7 +3,7 @@ const loginRouter = require ("express").Router();
 const Users = require("../../models/users");
 const { getLogin } = require("../controllers/loginController")
 
-
+// POST Crea usuarios en Base de Datos // encriptado de password
 loginRouter.post('/', (req, res ) => {
     const body = req.body
     Users.create(body).then((createdUser)=>{
@@ -14,6 +14,8 @@ loginRouter.post('/', (req, res ) => {
         res.status(400).json({false: "Error al crear el usuario",err})
     })
 })
+
+//
 
 
 
