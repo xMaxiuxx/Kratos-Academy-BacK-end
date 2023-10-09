@@ -46,6 +46,16 @@ const usersSchema = new mongoose.Schema({
 })
 
 const Users = mongoose.model('USERS',usersSchema)
+// quita el "._id" / "".__v" del objeto Json que crea el modelo;
+usersSchema.set('toJSON', {
+        transform: (document, returnedObject) => {
+          returnedObject.id = returnedObject._id
+          delete returnedObject._id
+          delete returnedObject.__v
+      
+        }
+      })
+      
 
 // Exportamos modelo Users
 module.exports = Users
