@@ -1,9 +1,15 @@
 
 //TODO Creamos un Schema de mongoose dice que propiedades y tipo de datos va a tener nuestras entidades 
 
+const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
 
 const usersSchema = new mongoose.Schema({
+        id:{
+          type:ObjectId,
+          unique:true,
+          require:false
+        },
         nickname:{
         type:String,
         required: true,

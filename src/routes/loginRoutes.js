@@ -78,10 +78,14 @@ loginRouter.post('/', async (req, res) => {
         if(!comparePass){
             return res.status(401).json({error: "Contraseña incorrecta"})
         }
-        // retornamos un mensaje de succes si va todo bien y ademas el token unico
+        //retornamos un mensaje de succes si va todo bien y ademas el token unico
         return res.json({
             success: "Autenticacion  exitosa",
-            token:createToken(user)})
+            token:createToken(user), 
+            id: user._id, 
+            role: user.role  
+        })
+        //    return res.json(user)
 
         // return res.status(200).json({ message : "Autenticacion exitosa"})
     } catch (err) {
