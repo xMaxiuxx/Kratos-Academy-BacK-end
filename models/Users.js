@@ -35,9 +35,9 @@ const usersSchema = new mongoose.Schema({
         unique:false
         },
         weight :{
-        type: String,
+        type: Number,
         required: false,
-        unique:false
+        default:0
         },
         faixa :{
         type:String,
